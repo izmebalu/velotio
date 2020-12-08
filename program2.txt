@@ -1,0 +1,44 @@
+3. You are given an array of positive integers representing the prices of a single stock on various days(each index in the array represents a different day). You are also given an integer K, which represents the number of transactions you are allowed to make. One transaction consists of buying the stock on a given day and selling it on another day.
+Write a function that returns the maximum profit that you can make by buying and selling the stock, given K transactions.
+Note that you can only hold one share of the at a time;
+in other words, you can't buy more than one share of the stock on any given day, and you can't buy a share of the stock if you are still holding another share.
+Also, you don't need to use all K transactions that you are allowed.
+Sample Input:
+Prices = [5, 11, 3, 50, 60, 90]
+K = 2
+Profit = 93 // Buy: 5; Sell: 11; Buy: 3, Sell: 90;
+
+
+Solution:
+
+def stock(price, l):
+
+    if (l == 1):
+        return 0
+
+    i = 0
+    while (i < (l - 1)):
+
+        while ((i < (l - 1)) and (price[i + 1] <= price[i])):
+            i += 1
+
+        if (i == l - 1):
+            break
+
+        purchase = i
+        i += 1
+
+        while ((i < l) and (price[i] >= price[i - 1])):
+            i += 1
+
+        sold = i - 1
+
+        print("Purchased on the day: ",purchase,"\t",
+                "Sold on the day: ",sold)
+
+
+price = [5, 11, 3, 50, 60, 90]
+l = len(price)
+
+stock(price, l) #function call
+

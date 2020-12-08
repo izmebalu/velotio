@@ -1,0 +1,9 @@
+1. Write a shell script to reverse the list of strings and reverse each string further in the list
+Solution:
+
+l = ["hello","bharath","cheepulla"]
+r = l[::-1] #reversing the list
+print(r)
+li = [k[::-1] for k in r] # Used list comprehension
+print(li)
+
