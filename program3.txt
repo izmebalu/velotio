@@ -1,0 +1,25 @@
+3.given an array of integers, find all possible subsets of the array.
+
+
+Solution:
+
+
+def subarray (b):
+    f = []
+    lists = [f]
+    for x in range(len(b)):
+        original = lists[:]
+        new = b[x]
+        for y in range(len(lists)):
+            lists[y] = lists[y] + [new]
+        lists = original + lists
+
+    return lists
+
+#calling function
+l1 = [1, 2, 3]
+print(subarray(l1))
+
+
+
+
